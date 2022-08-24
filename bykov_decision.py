@@ -31,6 +31,8 @@ class Destroyer:
             if _ in self.chars.lower() + self.chars.upper():
                 name = name.replace(_, self.replace_chars)
                 repl_list.append(f"'{_.lower()}'")
+        repl_list = list(set(repl_list))
+        repl_list.sort()
         print(f"Destroyed: {', '.join(set(repl_list))} from {name}'s name.")
         person.name = name
         return person
